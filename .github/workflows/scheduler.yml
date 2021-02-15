@@ -7,7 +7,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string.
     # /30 denotes that it will run once every 30 minutes
-    - cron:  '*/30 * * * *'
+    - cron:  '*/5 * * * *'
 jobs:
   build:
 
@@ -19,4 +19,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: npm install
     - run: npm run start
+    - run: git add .
+    - run: git config --global user.email "liu75675231@126.com"
+    - run: git config --global user.name "liuht"
+    - run: git commit -m"articlelist update"
+    - run: git pull
+    - run: git push
