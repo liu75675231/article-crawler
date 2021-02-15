@@ -28,7 +28,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         $("#most-recent article").each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(".entry-post-date").text());
-            if (articleDate.isSame(dateObj, 'day')) {
+            if (true) {
+//            if (articleDate.isSame(dateObj, 'day')) {
                 list.push({
                     type: 'Typescript',
                     title: $elem.find(".entry-title a").text(),
@@ -46,7 +47,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         $(".css-a5dudd").each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(".css-14mg9l4").text());
-            if (articleDate.isSame(dateObj, 'day')) {
+            if (true) {
+//            if (articleDate.isSame(dateObj, 'day')) {
                 list.push({
                     type: 'React',
                     title: $elem.find(".css-m6cbzp").text(),
