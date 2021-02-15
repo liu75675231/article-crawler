@@ -28,6 +28,8 @@ jobs:
     - run: npm install
     - run: npm run start
     - run: git add .
+    - run: git config --global user.email "liu75675231@126.com"
+    - run: git config --global user.name "liuht"
     - run: git commit -m"articlelist update"
     - run: git pull
     - run: git push
