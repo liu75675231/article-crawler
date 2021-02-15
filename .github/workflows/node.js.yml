@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run start
-    - run: git add articleList.xlsx
+    - run: git add .
     - run: git commit -m"articlelist update"
     - run: git pull
     - run: git push
