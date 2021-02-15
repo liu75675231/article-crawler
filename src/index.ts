@@ -14,7 +14,7 @@ const argDate = argList.reduce((accumulator, curValue) => {
         return curValue.split('=')[1];
     }
     return accumulator;
-});
+}, "");
 
 const dateObj = argDate ? dayjs(argDate) : dayjs();
 
@@ -28,8 +28,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         $("#most-recent article").each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(".entry-post-date").text());
-            if (true) {
-//            if (articleDate.isSame(dateObj, 'day')) {
+//            if (true) {
+            if (articleDate.isSame(dateObj, 'day')) {
                 list.push({
                     type: 'Typescript',
                     title: $elem.find(".entry-title a").text(),
@@ -47,8 +47,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         $(".css-a5dudd").each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(".css-14mg9l4").text());
-            if (true) {
-//            if (articleDate.isSame(dateObj, 'day')) {
+//            if (true) {
+            if (articleDate.isSame(dateObj, 'day')) {
                 list.push({
                     type: 'React',
                     title: $elem.find(".css-m6cbzp").text(),
@@ -60,6 +60,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
 
         return list;
     });
+
+
 
     run((list) => {
         if (!isForceUpdate && list.length === originRowCount) {
