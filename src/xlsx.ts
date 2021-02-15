@@ -1,0 +1,60 @@
+const ExcelJS = require('exceljs');
+
+const workbook = new ExcelJS.Workbook();
+
+function setColumn (worksheet) {
+    worksheet.columns = [
+        {
+            header: '标题',
+            key: 'title',
+            width: 50,
+        },
+        {
+            header: '文章类别',
+            key: 'type',
+            width: 20,
+        },
+        {
+            header: '发布日期',
+            key: 'date',
+            width: 20,
+        },
+        {
+            header: '是否阅读',
+            key: '',
+            width: 10,
+        },
+        {
+            header: '链接',
+            key: 'url',
+            width: 100,
+        },
+    ]
+}
+
+async function initOrGetWorksheet (name) {
+    try {
+        await workbook.xlsx.readFile("./articlelist.xlsx");
+    } catch (e) {
+
+    }
+
+    let worksheet = workbook.getWorksheet(name);
+
+    if (worksheet) {
+        workbook.removeWorksheet(name)
+    }
+
+    worksheet = workbook.addWorksheet(name);
+    setColumn(worksheet);
+    return worksheet;
+}
+
+function writeToFile () {
+    workbook.xlsx.writeFile('./articlelist.xlsx')
+}
+
+module.exports = {
+    initOrGetWorksheet,
+    writeToFile,
+}

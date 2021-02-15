@@ -1,0 +1,18 @@
+{
+  "name": "website-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.ts"
+  },
+  "dependencies": {
+    "crawler": "^1.3.0",
+    "dayjs": "^1.10.4",
+    "exceljs": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
