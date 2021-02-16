@@ -71,12 +71,12 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
                 list.push({
                     type: 'Chrome',
                     title: $elem.find("title").text(),
-                    url: $elem.find("link").text(),
+                    url: $elem.find("guid").text(),
                     date: articleDate.format('YYYY-MM-DD'),
                 });
-                console.log($elem.find("link"));
-                console.log($elem.find("link").text());
-                console.log($elem.find("link").html());
+                console.log($elem.find("guid"));
+                console.log($elem.find("guid").text());
+                console.log($elem.find("guid").html());
             }
         });
 
