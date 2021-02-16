@@ -61,7 +61,24 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         return list;
     });
 
+    setReqConf('https://developers.google.com/web/updates/rss.xml', ($) => {
+        const list = [];
+        $("item").each((index, elem) => {
+            const $elem = $(elem);
+            const articleDate = dayjs($elem.find("pubDate").text());
+            if (true) {
+//            if (articleDate.isSame(dateObj, 'day')) {
+                list.push({
+                    type: 'Chrome',
+                    title: $elem.find("title").text(),
+                    url: $elem.find("link").text(),
+                    date: articleDate.format('YYYY-MM-DD'),
+                });
+            }
+        });
 
+        return list;
+    });
 
     run((list) => {
         if (!isForceUpdate && list.length === originRowCount) {
