@@ -74,6 +74,9 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
                     url: $elem.find("link").text(),
                     date: articleDate.format('YYYY-MM-DD'),
                 });
+                console.log($elem.find("link"));
+                console.log($elem.find("link").text());
+                console.log($elem.find("link").html());
             }
         });
 
