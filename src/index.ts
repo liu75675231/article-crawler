@@ -42,6 +42,25 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         return list;
     });
 
+    setReqConf('https://devblogs.microsoft.com/typescript/', ($) => {
+        const list = [];
+        $("#most-recent article").each((index, elem) => {
+            const $elem = $(elem);
+            const articleDate = dayjs($elem.find(".entry-post-date").text());
+//            if (true) {
+            if (articleDate.isSame(dateObj, 'day')) {
+                list.push({
+                    type: 'Typescript',
+                    title: $elem.find(".entry-title a").text(),
+                    url: $elem.find(".entry-title a").attr("href"),
+                    date: articleDate.format('YYYY-MM-DD'),
+                });
+            }
+        });
+
+        return list;
+    });
+
     setReqConf('https://reactjs.org/blog/all.html', ($) => {
         const list = [];
         $(".css-a5dudd").each((index, elem) => {
@@ -72,6 +91,25 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
                     type: 'Chrome',
                     title: $elem.find("title").text(),
                     url: $elem.find("guid").text(),
+                    date: articleDate.format('YYYY-MM-DD'),
+                });
+            }
+        });
+
+        return list;
+    });
+
+    setReqConf('https://v8.dev/blog', ($) => {
+        const list = [];
+        $("#main li").each((index, elem) => {
+            const $elem = $(elem);
+            const articleDate = dayjs($elem.find("time").text());
+//            if (true) {
+            if (articleDate.isSame(dateObj, 'day')) {
+                list.push({
+                    type: 'v8.dev',
+                    title: $elem.find("a").text(),
+                    url: `https://v8.dev${ $elem.find("a").attr("href") }`,
                     date: articleDate.format('YYYY-MM-DD'),
                 });
             }
