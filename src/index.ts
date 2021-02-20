@@ -104,8 +104,8 @@ const dateObj = argDate ? dayjs(argDate) : dayjs();
         $("#main li").each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find("time").text());
-//            if (true) {
-            if (articleDate.isSame(dateObj, 'day')) {
+            if (true) {
+//            if (articleDate.isSame(dateObj, 'day')) {
                 list.push({
                     type: 'v8.dev',
                     title: $elem.find("a").text(),
