@@ -18,6 +18,8 @@ const argDate = argList.reduce((accumulator, curValue) => {
 
 const dateObj = argDate ? dayjs(argDate) : dayjs();
 
+console.log(dateObj);
+
 (async () => {
     const todayStr = dateObj.format('YYYY-MM-DD');
     const sheetToday = await initOrGetWorksheet(todayStr);
