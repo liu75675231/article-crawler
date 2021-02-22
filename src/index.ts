@@ -1,3 +1,8 @@
+var utc = require('dayjs/plugin/utc') // dependent on utc plugin
+var timezone = require('dayjs/plugin/timezone');
+dayjs.extend(utc)
+dayjs.extend(timezone)
+console.log(dayjs.tz.guess()) // America/Chicago
 const { initOrGetWorksheet, writeToFile } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 
