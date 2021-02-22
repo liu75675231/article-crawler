@@ -1,5 +1,3 @@
-var utc = require('dayjs/plugin/utc') // dependent on utc plugin
-var timezone = require('dayjs/plugin/timezone');
 const { initOrGetWorksheet, writeToFile } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 const crawlerConf = require('./conf.ts');
