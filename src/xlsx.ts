@@ -47,10 +47,17 @@ async function initOrGetWorksheet (name) {
 
     worksheet = workbook.addWorksheet(name);
     setColumn(worksheet);
+
     return worksheet;
 }
 
 function writeToFile () {
+    const worksheetNum = workbook.worksheets.length;
+    workbook.views = [
+        {
+            firstSheet: worksheetNum - 4, activeTab: worksheetNum - 1, visibility: 'visible'
+        }
+    ]
     workbook.xlsx.writeFile('./articlelist.xlsx')
 }
 

@@ -17,9 +17,10 @@ const c = new Crawler({
     }
 });
 
-function setReqConf (url, callback) {
+function setReqConf (url, options, callback) {
     reqConfList.push({
         url,
+        options,
         callback,
     });
 }
@@ -28,22 +29,30 @@ async function run (callback) {
     let list = [];
     for (const reqConf of reqConfList) {
         // @ts-ignore
-        list.push(...(await reqQueue(reqConf.url, reqConf.callback)));
+        list.push(...(await reqQueue(reqConf)));
     }
     callback(list);
 }
 
-function reqQueue (uri, handler) {
+function reqQueue (reqConf) {
     return new Promise((resolve, reject) =>　{
         c.queue([{
-            uri,
+            uri: reqConf.url,
+            method: reqConf.options.method,
+            headers: reqConf.options.headers,
+            body: JSON.stringify(reqConf.options.reqParams),
+            jQuery: reqConf.options.resType === 'json' ? false : true,
             callback: function (error, res, done) {
                 if(error){
                     reject(error);
                     console.log(error);
                 }else{
-                    const $ = res.$;
-                    resolve(handler($));
+                    if (reqConf.options.resType === 'json') {
+                        resolve(reqConf.callback(res.body));
+                    } else {
+                        const $ = res.$;
+                        resolve(reqConf.callback($));
+                    }
                 }
                 done();
             }

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.ts"
+    "start:english": "node src/index.ts --region=english",
+    "start:chinese": "node src/index.ts --region=chinese"
   },
   "dependencies": {
     "crawler": "^1.3.0",
