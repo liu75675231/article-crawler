@@ -30,8 +30,10 @@ const argDate = argList.reduce((accumulator, curValue) => {
     return accumulator;
 }, "");
 
+console.log(new Date());
 const dateObj = argDate ? dayjs.tz(argDate) : dayjs.tz();
 
+console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 (async () => {
     const todayStr = dateObj.format('YYYY-MM-DD');
     const sheetToday = await initOrGetWorksheet(todayStr + '-' + region);
@@ -85,8 +87,8 @@ const dateObj = argDate ? dayjs.tz(argDate) : dayjs.tz();
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs.tz($elem.find(conf.selectorDate).text());
-            // articleDate.isSame(dateObj, 'day')
-            if (true) {
+
+            if (articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
                     title: $elem.find(conf.selectorTitle).text(),
