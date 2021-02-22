@@ -70,7 +70,10 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 
     function compileJsonList (resData, conf, targetList) {
         JSON.parse(resData)[conf.list].forEach((elem) => {
-            const articleDate = dayjs.tz(elem[conf.date]);
+            let originDate = elem[conf.date];
+            conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
+            const articleDate = dayjs.tz(originDate);
+            // articleDate.isSame(dateObj, 'day');
             if (articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,

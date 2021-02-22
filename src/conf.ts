@@ -1,25 +1,57 @@
 const chinese = {
     timezone: 'Asia/Shanghai',
     list: [
+        // {
+        //     resType: "json",
+        //     url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
+        //     headers: {
+        //         Origin: 'https://www.infoq.cn',
+        //         Accept: 'application/json, text/plain, */*',
+        //     },
+        //     method: 'post',
+        //     reqParams: {
+        //         id: 33,
+        //         size: 30,
+        //         type: 0,
+        //     },
+        //     list: 'data',
+        //     title: 'article_title',
+        //     type: 'infoq',
+        //     date: 'publish_time',
+        //     href: (data) => {
+        //         return `https://www.infoq.cn/article/${ data.uuid }`;
+        //     },
+        // },
         {
             resType: "json",
-            url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
+            url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
             headers: {
-                Origin: 'https://www.infoq.cn',
                 Accept: 'application/json, text/plain, */*',
             },
-            method: 'post',
-            reqParams: {
-                id: 33,
-                size: 30,
-                type: 0,
-            },
+            method: 'get',
             list: 'data',
-            title: 'article_title',
-            type: 'infoq',
-            date: 'publish_time',
+            title: 'title',
+            type: '知乎-专栏-网易云音乐大前端团队',
+            date: 'updated',
+            dateType: 'secondUnix',
             href: (data) => {
-                return `https://www.infoq.cn/article/${ data.uuid }`;
+                return data.url;
+            },
+        },
+        {
+            resType: "json",
+            url: 'https://www.zhihu.com/api/v4/columns/imweb/items',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+            },
+            method: 'get',
+            list: 'data',
+            title: 'title',
+            type: '知乎-专栏-IMWeb前端社区',
+            date: 'updated',
+            dateType: 'secondUnix',
+            href: (data) => {
+                return data.url;
             },
         }
     ]
