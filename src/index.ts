@@ -1,15 +1,16 @@
-var utc = require('dayjs/plugin/utc') // dependent on utc plugin
-var timezone = require('dayjs/plugin/timezone');
-dayjs.extend(utc)
-dayjs.extend(timezone)
-console.log(dayjs.tz.guess()) // America/Chicago
+
+
 const { initOrGetWorksheet, writeToFile } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 
 const dayjs = require('dayjs');
+var utc = require('dayjs/plugin/utc') // dependent on utc plugin
+var timezone = require('dayjs/plugin/timezone');
 var isToday = require('dayjs/plugin/isToday');
 dayjs.extend(isToday);
-
+dayjs.extend(utc)
+dayjs.extend(timezone)
+console.log(dayjs.tz.guess()) // America/Chicago
 const argList = process.argv;
 
 const isForceUpdate = argList.indexOf('--forceUpdate') > -1 ? true : false;
