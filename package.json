@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start:english": "node src/index.ts --region=english",
-    "start:chinese": "node src/index.ts --region=chinese"
+    "start:chinese": "node src/index.ts --region=chinese",
+    "test:english": "node src/index.ts --region=english --alldate",
+    "test:chinese": "node src/index.ts --region=chinese --alldate"
   },
   "dependencies": {
     "crawler": "^1.3.0",

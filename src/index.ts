@@ -12,7 +12,9 @@ dayjs.extend(timezone)
 
 const argList = process.argv;
 
-const isForceUpdate = argList.indexOf('--forceUpdate') > -1 ? true : false;
+const isForceUpdate = argList.indexOf('--forceUpdate') > -1;
+
+const unlimitDate = argList.indexOf('--alldate') > -1;
 
 const region = argList.reduce((accumulator, curValue) => {
     if (curValue.indexOf('--region') > -1) {
@@ -30,7 +32,6 @@ const argDate = argList.reduce((accumulator, curValue) => {
     return accumulator;
 }, "");
 
-console.log(new Date());
 const dateObj = argDate ? dayjs.tz(argDate) : dayjs.tz();
 
 console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
@@ -74,7 +75,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
             const articleDate = dayjs.tz(originDate);
             // articleDate.isSame(dateObj, 'day');
-            if (true) {
+            if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
                     title: elem[conf.title],
@@ -91,7 +92,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             const $elem = $(elem);
             const articleDate = dayjs.tz($elem.find(conf.selectorDate).text());
 
-            if (true) {
+            if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
                     title: $elem.find(conf.selectorTitle).text(),
