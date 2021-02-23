@@ -12,7 +12,7 @@ function setColumn (worksheet) {
         {
             header: '文章类别',
             key: 'type',
-            width: 20,
+            width: 30,
         },
         {
             header: '发布日期',

@@ -53,7 +53,23 @@ const chinese = {
             href: (data) => {
                 return data.url;
             },
-        }
+        },
+        {
+            resType: "json",
+            url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+            },
+            method: 'get',
+            list: 'data',
+            title: 'title',
+            type: '知乎-专栏-淘系前端团队',
+            date: 'updated',
+            dateType: 'secondUnix',
+            href: (data) => {
+                return data.url;
+            },
+        },
     ]
 }
 

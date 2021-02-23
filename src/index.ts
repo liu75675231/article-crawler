@@ -74,7 +74,6 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             let originDate = elem[conf.date];
             conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
             const articleDate = dayjs.tz(originDate);
-            // articleDate.isSame(dateObj, 'day');
             if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
