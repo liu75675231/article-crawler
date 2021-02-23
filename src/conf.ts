@@ -1,27 +1,27 @@
 const chinese = {
     timezone: 'Asia/Shanghai',
     list: [
-        // {
-        //     resType: "json",
-        //     url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
-        //     headers: {
-        //         Origin: 'https://www.infoq.cn',
-        //         Accept: 'application/json, text/plain, */*',
-        //     },
-        //     method: 'post',
-        //     reqParams: {
-        //         id: 33,
-        //         size: 30,
-        //         type: 0,
-        //     },
-        //     list: 'data',
-        //     title: 'article_title',
-        //     type: 'infoq',
-        //     date: 'publish_time',
-        //     href: (data) => {
-        //         return `https://www.infoq.cn/article/${ data.uuid }`;
-        //     },
-        // },
+        {
+            resType: "json",
+            url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
+            headers: {
+                Origin: 'https://www.infoq.cn',
+                Accept: 'application/json, text/plain, */*',
+            },
+            method: 'post',
+            reqParams: {
+                id: 33,
+                size: 30,
+                type: 0,
+            },
+            list: 'data',
+            title: 'article_title',
+            type: 'infoq',
+            date: 'publish_time',
+            href: (data) => {
+                return `https://www.infoq.cn/article/${ data.uuid }`;
+            },
+        },
         {
             resType: "json",
             url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
@@ -99,7 +99,27 @@ const english = {
             href: ($elem) => {
                 return `https://v8.dev${ $elem.find("a").attr("href") }`;
             }
-        }
+        },
+        {
+            url: 'https://cprss.s3.amazonaws.com/react.statuscode.com.xml',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'React Status',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("guid").text();
+            }
+        },
+        {
+            url: 'https://cprss.s3.amazonaws.com/javascriptweekly.com.xml',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'React Status',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("guid").text();
+            }
+        },
     ],
 };
 

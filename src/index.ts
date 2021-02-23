@@ -74,7 +74,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
             const articleDate = dayjs.tz(originDate);
             // articleDate.isSame(dateObj, 'day');
-            if (articleDate.isSame(dateObj, 'day')) {
+            if (true) {
                 targetList.push({
                     type: conf.type,
                     title: elem[conf.title],
@@ -91,7 +91,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             const $elem = $(elem);
             const articleDate = dayjs.tz($elem.find(conf.selectorDate).text());
 
-            if (articleDate.isSame(dateObj, 'day')) {
+            if (true) {
                 targetList.push({
                     type: conf.type,
                     title: $elem.find(conf.selectorTitle).text(),
