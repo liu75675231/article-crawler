@@ -1,4 +1,4 @@
-const { initOrGetWorksheet, writeToFile } = require('./xlsx.ts');
+const { initOrGetWorksheet, writeToFile, getOriginWorksheetRowCount } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 const crawlerConf = require('./conf.ts');
 
@@ -38,8 +38,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 (async () => {
     const todayStr = dateObj.format('YYYY-MM-DD');
     const sheetToday = await initOrGetWorksheet(todayStr + '-' + region);
-    const originRowCount = sheetToday.rowCount - 1;
-
+    const originRowCount = getOriginWorksheetRowCount();
     crawlerConf[region].list.forEach(data => {
         setReqConf(data.url, {
             method: data.method || 'get',
@@ -71,13 +70,13 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 
     function compileJsonList (resData, conf, targetList) {
         JSON.parse(resData)[conf.list].forEach((elem) => {
-            let originDate = elem[conf.date];
+            let originDate = typeof conf.date === 'function' ? conf.date(elem) : elem[conf.date];
             conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
             const articleDate = dayjs.tz(originDate);
             if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
-                    title: elem[conf.title],
+                    title: typeof conf.title === 'function' ? conf.title(elem) : elem[conf.title],
                     date: articleDate.format('YYYY-MM-DD'),
                     url: conf.href(elem),
                 });

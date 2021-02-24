@@ -1,6 +1,11 @@
 const ExcelJS = require('exceljs');
 
 const workbook = new ExcelJS.Workbook();
+let originWorksheetRowCount = 0;
+
+function getOriginWorksheetRowCount () {
+    return originWorksheetRowCount - 1;
+}
 
 function setColumn (worksheet) {
     worksheet.columns = [
@@ -42,6 +47,7 @@ async function initOrGetWorksheet (name) {
     let worksheet = workbook.getWorksheet(name);
 
     if (worksheet) {
+        originWorksheetRowCount = worksheet.rowCount;
         workbook.removeWorksheet(name)
     }
 
@@ -64,4 +70,5 @@ function writeToFile () {
 module.exports = {
     initOrGetWorksheet,
     writeToFile,
+    getOriginWorksheetRowCount,
 }

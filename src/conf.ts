@@ -70,6 +70,31 @@ const chinese = {
                 return data.url;
             },
         },
+        {
+            resType: "json",
+            url: 'https://api.juejin.cn/content_api/v1/article/query_list',
+            headers: {
+                'content-type': 'application/json',
+            },
+            reqParams: {
+                cursor: "0",
+                sort_type: 2,
+                user_id: "764915822116382"
+            },
+            method: 'post',
+            list: 'data',
+            title: (data) => {
+                return data.article_info.title;
+            },
+            type: '掘金-腾讯IMWeb团队',
+            date: (data) => {
+                return data.article_info.mtime;
+            },
+            dateType: 'secondUnix',
+            href: (data) => {
+                return 'https://juejin.cn/post/' + data.article_id;
+            },
+        }
     ]
 }
 
