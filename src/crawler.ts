@@ -34,6 +34,22 @@ async function run (callback) {
     callback(list);
 }
 
+function getJQueryOptions (reqConf) {
+    if (reqConf.options.resType === 'json') {
+        return false;
+    }
+
+    if (reqConf.options.isResXml) {
+        return {
+            name: 'cheerio',
+            options: {
+                xmlMode: true
+            }
+        }
+    }
+    return true;
+}
+
 function reqQueue (reqConf) {
     return new Promise((resolve, reject) =>　{
         c.queue([{
@@ -41,7 +57,7 @@ function reqQueue (reqConf) {
             method: reqConf.options.method,
             headers: reqConf.options.headers,
             body: JSON.stringify(reqConf.options.reqParams),
-            jQuery: reqConf.options.resType === 'json' ? false : true,
+            jQuery: getJQueryOptions(reqConf),
             callback: function (error, res, done) {
                 if(error){
                     reject(error);

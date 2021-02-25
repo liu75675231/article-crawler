@@ -48,6 +48,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             headers: data.headers || {},
             resType: data.resType,
             reqParams: data.reqParams || {},
+            isResXml: data.isResXml || false,
         }, ($) => {
             const list = [];
             if (data.resType === 'json') {

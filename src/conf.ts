@@ -142,6 +142,17 @@ const english = {
                 return $elem.find("guid").text();
             }
         },
+        {
+            url: 'https://css-tricks.com/feed/',
+            isResXml: true,
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'css-tricks',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("link").text();
+            }
+        },
     ],
 };
 
