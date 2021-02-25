@@ -1,7 +1,7 @@
 const ExcelJS = require('exceljs');
 
 const workbook = new ExcelJS.Workbook();
-let originWorksheetRowCount = 0;
+let originWorksheetRowCount = 1; // 预留一条数据给标题的
 
 function getOriginWorksheetRowCount () {
     return originWorksheetRowCount - 1;

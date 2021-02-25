@@ -40,6 +40,9 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
     const sheetToday = await initOrGetWorksheet(todayStr + '-' + region);
     const originRowCount = getOriginWorksheetRowCount();
     crawlerConf[region].list.forEach(data => {
+        if (data.template) {
+            data = crawlerConf.template[data.template](data);
+        }
         setReqConf(data.url, {
             method: data.method || 'get',
             headers: data.headers || {},

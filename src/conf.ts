@@ -23,77 +23,26 @@ const chinese = {
             },
         },
         {
-            resType: "json",
+            template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-            },
-            method: 'get',
-            list: 'data',
-            title: 'title',
-            type: '知乎-专栏-网易云音乐大前端团队',
-            date: 'updated',
-            dateType: 'secondUnix',
-            href: (data) => {
-                return data.url;
-            },
+            type: '知乎-网易云音乐大前端团队',
         },
         {
-            resType: "json",
+            template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/imweb/items',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-            },
-            method: 'get',
-            list: 'data',
-            title: 'title',
-            type: '知乎-专栏-IMWeb前端社区',
-            date: 'updated',
-            dateType: 'secondUnix',
-            href: (data) => {
-                return data.url;
-            },
+            type: '知乎-IMWeb前端社区',
         },
         {
-            resType: "json",
+            template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-            },
-            method: 'get',
-            list: 'data',
-            title: 'title',
-            type: '知乎-专栏-淘系前端团队',
-            date: 'updated',
-            dateType: 'secondUnix',
-            href: (data) => {
-                return data.url;
-            },
+            type: '知乎-淘系前端团队',
         },
         {
-            resType: "json",
-            url: 'https://api.juejin.cn/content_api/v1/article/query_list',
-            headers: {
-                'content-type': 'application/json',
-            },
+            template: 'juejin',
             reqParams: {
-                cursor: "0",
-                sort_type: 2,
-                user_id: "764915822116382"
-            },
-            method: 'post',
-            list: 'data',
-            title: (data) => {
-                return data.article_info.title;
+                user_id: '764915822116382',
             },
             type: '掘金-腾讯IMWeb团队',
-            date: (data) => {
-                return data.article_info.mtime;
-            },
-            dateType: 'secondUnix',
-            href: (data) => {
-                return 'https://juejin.cn/post/' + data.article_id;
-            },
         }
     ]
 }
@@ -164,7 +113,56 @@ const english = {
     ],
 };
 
+const template = {
+    juejin (conf) {
+        return {
+            resType: "json",
+            url: 'https://api.juejin.cn/content_api/v1/article/query_list',
+            headers: {
+                'content-type': 'application/json',
+            },
+            reqParams: {
+                cursor: "0",
+                sort_type: 2,
+                user_id: conf.reqParams.user_id,
+            },
+            method: 'post',
+            list: 'data',
+            title: (data) => {
+                return data.article_info.title;
+            },
+            type: conf.type,
+            date: (data) => {
+                return data.article_info.mtime;
+            },
+            dateType: 'secondUnix',
+            href: (data) => {
+                return 'https://juejin.cn/post/' + data.article_id;
+            },
+        };
+    },
+    zhihu (conf) {
+        return {
+            resType: "json",
+            url: conf.url,
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+            },
+            method: 'get',
+            list: 'data',
+            title: 'title',
+            type: conf.type,
+            date: 'updated',
+            dateType: 'secondUnix',
+            href: (data) => {
+                return data.url;
+            },
+        }
+    },
+};
+
 module.exports = {
     english,
     chinese,
+    template,
 }
