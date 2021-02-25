@@ -23,6 +23,38 @@ const chinese = {
             },
         },
         {
+            url: 'https://aotu.io/atom.xml',
+            selectorList: 'entry',
+            selectorTitle: 'title',
+            type: '凹凸实验室',
+            selectorDate: 'published',
+            href: ($elem) => {
+                return $elem.find("id").text();
+            }
+        },
+        {
+            url: 'https://www.zhangxinxu.com/wordpress/feed/',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: '张鑫旭',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("comments").text().replace(/#comments/, '');
+            }
+        },
+        {
+            url: 'https://fed.taobao.org/atom.xml',
+            selectorList: 'item',
+            selectorTitle: ($elem) => {
+                return $elem.find("title").html().replace('<!--[CDATA[', '').replace(']]-->', '');
+            },
+            type: 'Taobao FED | 淘系前端团队',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("id").text();
+            }
+        },
+        {
             template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
             type: '知乎-网易云音乐大前端团队',

@@ -96,7 +96,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
-                    title: $elem.find(conf.selectorTitle).text(),
+                    title: typeof conf.selectorTitle === 'function' ? conf.selectorTitle($elem) : $elem.find(conf.selectorTitle).text(),
                     url: conf.href($elem),
                     date: articleDate.format('YYYY-MM-DD'),
                 });
