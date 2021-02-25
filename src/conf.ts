@@ -75,7 +75,24 @@ const chinese = {
                 user_id: '764915822116382',
             },
             type: '掘金-腾讯IMWeb团队',
-        }
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '3456520257288974',
+            },
+            type: '掘金-政采云前端团队',
+        },
+        {
+            url: 'https://weekly.75.team/',
+            selectorList: '.issue-list li',
+            selectorTitle: 'a',
+            type: '奇舞周刊',
+            selectorDate: 'time',
+            href: ($elem) => {
+                return `https://weekly.75.team${ $elem.find("a").attr('href') }`;
+            }
+        },
     ]
 }
 
