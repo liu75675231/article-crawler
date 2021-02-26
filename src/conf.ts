@@ -201,6 +201,17 @@ const english = {
                 return $elem.find("link").text();
             }
         },
+        {
+            url: 'https://overreacted.io/rss.xml',
+            isResXml: true,
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Dan Abramov (React作者)',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("link").text();
+            }
+        }
     ],
 };
 
