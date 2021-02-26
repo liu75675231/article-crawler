@@ -66,8 +66,18 @@ const chinese = {
         },
         {
             template: 'zhihu',
+            url: 'https://www.zhihu.com/api/v4/columns/FrontendPerusal/items',
+            type: '知乎-前端精读评论',
+        },
+        {
+            template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
             type: '知乎-淘系前端团队',
+        },
+        {
+            template: 'zhihu',
+            url: 'https://www.zhihu.com/api/v4/columns/ElemeFE/items',
+            type: '知乎-饿了么前端',
         },
         {
             template: 'juejin',
@@ -82,6 +92,27 @@ const chinese = {
                 user_id: '3456520257288974',
             },
             type: '掘金-政采云前端团队',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '395479919373991'
+            },
+            type: '掘金-阿里巴巴淘系技术',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '1257497031878408',
+            },
+            type: '掘金-闲鱼技术',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '4089838988440024',
+            },
+            type: '掘金-微医大前端技术',
         },
         {
             url: 'https://weekly.75.team/',
