@@ -14,7 +14,7 @@ fetch("https://developers.google.com/web/updates/rss.xml", {
 }).then(res => res.text())
     .then(body => console.log(body));;
 
-return;
+//return;
 const dayjs = require('dayjs');
 // var utc = require('dayjs/plugin/utc') // dependent on utc plugin
 // var timezone = require('dayjs/plugin/timezone');
