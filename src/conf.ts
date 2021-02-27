@@ -130,28 +130,41 @@ const chinese = {
 const english = {
     timezone: 'UTC',
     list: [
-        {
-            url: 'https://devblogs.microsoft.com/typescript/',
-            selectorList: '#most-recent article',
-            selectorTitle: '.entry-title a',
-            type: 'Typescript',
-            selectorDate: ".entry-post-date",
-            href: ($elem) => {
-                return $elem.find(".entry-title a").attr("href");
-            },
-        },
-        {
-            url: 'https://reactjs.org/blog/all.html',
-            selectorList: '.css-a5dudd',
-            selectorTitle: '.css-m6cbzp',
-            type: 'React',
-            selectorDate: '.css-14mg9l4',
-            href: ($elem) => {
-                return `https://reactjs.org${ $elem.find(".css-m6cbzp").attr("href") }`;
-            }
-        },
+//         {
+//             url: 'https://devblogs.microsoft.com/typescript/',
+//             selectorList: '#most-recent article',
+//             selectorTitle: '.entry-title a',
+//             type: 'Typescript',
+//             selectorDate: ".entry-post-date",
+//             href: ($elem) => {
+//                 return $elem.find(".entry-title a").attr("href");
+//             },
+//         },
+//         {
+//             url: 'https://reactjs.org/blog/all.html',
+//             selectorList: '.css-a5dudd',
+//             selectorTitle: '.css-m6cbzp',
+//             type: 'React',
+//             selectorDate: '.css-14mg9l4',
+//             href: ($elem) => {
+//                 return `https://reactjs.org${ $elem.find(".css-m6cbzp").attr("href") }`;
+//             }
+//         },
         {
             url: 'https://developers.google.com/web/updates/rss.xml',
+            headers: {
+                accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'accept-encoding': 'gzip, deflate, br',
+                'accept-language': 'zh-CN,zh;q=0.9',
+                'cache-control': 'no-cache',
+                pragma: 'no-cache',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'none',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36',
+            },
             selectorList: 'item',
             selectorTitle: 'title',
             type: 'Chrome',
@@ -160,58 +173,58 @@ const english = {
                 return $elem.find("guid").text();
             }
         },
-        {
-            url: 'https://v8.dev/blog',
-            selectorList: '#main li',
-            selectorTitle: 'a',
-            type: 'v8.dev',
-            selectorDate: 'time',
-            href: ($elem) => {
-                return `https://v8.dev${ $elem.find("a").attr("href") }`;
-            }
-        },
-        {
-            url: 'https://cprss.s3.amazonaws.com/react.statuscode.com.xml',
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: 'React Status',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("guid").text();
-            }
-        },
-        {
-            url: 'https://cprss.s3.amazonaws.com/javascriptweekly.com.xml',
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: 'React Status',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("guid").text();
-            }
-        },
-        {
-            url: 'https://css-tricks.com/feed/',
-            isResXml: true,
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: 'css-tricks',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("link").text();
-            }
-        },
-        {
-            url: 'https://overreacted.io/rss.xml',
-            isResXml: true,
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: 'Dan Abramov (React作者)',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("link").text();
-            }
-        }
+//         {
+//             url: 'https://v8.dev/blog',
+//             selectorList: '#main li',
+//             selectorTitle: 'a',
+//             type: 'v8.dev',
+//             selectorDate: 'time',
+//             href: ($elem) => {
+//                 return `https://v8.dev${ $elem.find("a").attr("href") }`;
+//             }
+//         },
+//         {
+//             url: 'https://cprss.s3.amazonaws.com/react.statuscode.com.xml',
+//             selectorList: 'item',
+//             selectorTitle: 'title',
+//             type: 'React Status',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("guid").text();
+//             }
+//         },
+//         {
+//             url: 'https://cprss.s3.amazonaws.com/javascriptweekly.com.xml',
+//             selectorList: 'item',
+//             selectorTitle: 'title',
+//             type: 'React Status',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("guid").text();
+//             }
+//         },
+//         {
+//             url: 'https://css-tricks.com/feed/',
+//             isResXml: true,
+//             selectorList: 'item',
+//             selectorTitle: 'title',
+//             type: 'css-tricks',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("link").text();
+//             }
+//         },
+//         {
+//             url: 'https://overreacted.io/rss.xml',
+//             isResXml: true,
+//             selectorList: 'item',
+//             selectorTitle: 'title',
+//             type: 'Dan Abramov (React作者)',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("link").text();
+//             }
+//         }
     ],
 };
 
