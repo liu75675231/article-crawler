@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:english": "node src/index.ts --region=english",
-    "start:chinese": "node src/index.ts --region=chinese",
+    "start:english": "node src/index.ts --region=english --date=-1",
+    "start:chinese": "node src/index.ts --region=chinese --date=-1",
     "test:english": "node src/index.ts --region=english --alldate --forceUpdate",
     "test:chinese": "node src/index.ts --region=chinese --alldate --forceUpdate"
   },
