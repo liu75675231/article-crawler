@@ -57,6 +57,7 @@ function reqQueue (reqConf) {
             uri: reqConf.url,
             method: reqConf.options.method,
             headers: reqConf.options.headers,
+            http2: true,
             body: JSON.stringify(reqConf.options.reqParams),
             jQuery: getJQueryOptions(reqConf),
             callback: function (error, res, done) {
