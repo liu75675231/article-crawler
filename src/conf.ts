@@ -183,10 +183,9 @@ const english = {
         },
         {
             url: 'https://cprss.s3.amazonaws.com/javascriptweekly.com.xml',
-            isResXml: true,
             selectorList: 'item',
             selectorTitle: 'title',
-            type: 'React Status',
+            type: 'Javascript Weekly',
             selectorDate: 'pubDate',
             href: ($elem) => {
                 return $elem.find("guid").text();
