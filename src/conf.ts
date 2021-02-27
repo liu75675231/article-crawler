@@ -1,129 +1,129 @@
 const chinese = {
     timezone: 'Asia/Shanghai',
-    list: [
-        {
-            resType: "json",
-            url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
-            headers: {
-                Origin: 'https://www.infoq.cn',
-                Accept: 'application/json, text/plain, */*',
-            },
-            method: 'post',
-            reqParams: {
-                id: 33,
-                size: 30,
-                type: 0,
-            },
-            list: 'data',
-            title: 'article_title',
-            type: 'infoq',
-            date: 'publish_time',
-            href: (data) => {
-                return `https://www.infoq.cn/article/${ data.uuid }`;
-            },
-        },
-        {
-            url: 'https://aotu.io/atom.xml',
-            selectorList: 'entry',
-            selectorTitle: 'title',
-            type: '凹凸实验室',
-            selectorDate: 'published',
-            href: ($elem) => {
-                return $elem.find("id").text();
-            }
-        },
-        {
-            url: 'https://www.zhangxinxu.com/wordpress/feed/',
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: '张鑫旭',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("comments").text().replace(/#comments/, '');
-            }
-        },
-        {
-            url: 'https://fed.taobao.org/atom.xml',
-            selectorList: 'item',
-            selectorTitle: ($elem) => {
-                return $elem.find("title").html().replace('<!--[CDATA[', '').replace(']]-->', '');
-            },
-            type: 'Taobao FED | 淘系前端团队',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("id").text();
-            }
-        },
-        {
-            template: 'zhihu',
-            url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
-            type: '知乎-网易云音乐大前端团队',
-        },
-        {
-            template: 'zhihu',
-            url: 'https://www.zhihu.com/api/v4/columns/imweb/items',
-            type: '知乎-IMWeb前端社区',
-        },
-        {
-            template: 'zhihu',
-            url: 'https://www.zhihu.com/api/v4/columns/FrontendPerusal/items',
-            type: '知乎-前端精读评论',
-        },
-        {
-            template: 'zhihu',
-            url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
-            type: '知乎-淘系前端团队',
-        },
-        {
-            template: 'zhihu',
-            url: 'https://www.zhihu.com/api/v4/columns/ElemeFE/items',
-            type: '知乎-饿了么前端',
-        },
-        {
-            template: 'juejin',
-            reqParams: {
-                user_id: '764915822116382',
-            },
-            type: '掘金-腾讯IMWeb团队',
-        },
-        {
-            template: 'juejin',
-            reqParams: {
-                user_id: '3456520257288974',
-            },
-            type: '掘金-政采云前端团队',
-        },
-        {
-            template: 'juejin',
-            reqParams: {
-                user_id: '395479919373991'
-            },
-            type: '掘金-阿里巴巴淘系技术',
-        },
-        {
-            template: 'juejin',
-            reqParams: {
-                user_id: '1257497031878408',
-            },
-            type: '掘金-闲鱼技术',
-        },
-        {
-            template: 'juejin',
-            reqParams: {
-                user_id: '4089838988440024',
-            },
-            type: '掘金-微医大前端技术',
-        },
-        {
-            url: 'https://weekly.75.team/',
-            selectorList: '.issue-list li',
-            selectorTitle: 'a',
-            type: '奇舞周刊',
-            selectorDate: 'time',
-            href: ($elem) => {
-                return `https://weekly.75.team${ $elem.find("a").attr('href') }`;
-            }
-        },
+     list: [
+//         {
+//             resType: "json",
+//             url: 'https://www.infoq.cn/public/v1/article/getList?id=33&size=30&type=0',
+//             headers: {
+//                 Origin: 'https://www.infoq.cn',
+//                 Accept: 'application/json, text/plain, */*',
+//             },
+//             method: 'post',
+//             reqParams: {
+//                 id: 33,
+//                 size: 30,
+//                 type: 0,
+//             },
+//             list: 'data',
+//             title: 'article_title',
+//             type: 'infoq',
+//             date: 'publish_time',
+//             href: (data) => {
+//                 return `https://www.infoq.cn/article/${ data.uuid }`;
+//             },
+//         },
+//         {
+//             url: 'https://aotu.io/atom.xml',
+//             selectorList: 'entry',
+//             selectorTitle: 'title',
+//             type: '凹凸实验室',
+//             selectorDate: 'published',
+//             href: ($elem) => {
+//                 return $elem.find("id").text();
+//             }
+//         },
+//         {
+//             url: 'https://www.zhangxinxu.com/wordpress/feed/',
+//             selectorList: 'item',
+//             selectorTitle: 'title',
+//             type: '张鑫旭',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("comments").text().replace(/#comments/, '');
+//             }
+//         },
+//         {
+//             url: 'https://fed.taobao.org/atom.xml',
+//             selectorList: 'item',
+//             selectorTitle: ($elem) => {
+//                 return $elem.find("title").html().replace('<!--[CDATA[', '').replace(']]-->', '');
+//             },
+//             type: 'Taobao FED | 淘系前端团队',
+//             selectorDate: 'pubDate',
+//             href: ($elem) => {
+//                 return $elem.find("id").text();
+//             }
+//         },
+//         {
+//             template: 'zhihu',
+//             url: 'https://www.zhihu.com/api/v4/columns/musicfe/items',
+//             type: '知乎-网易云音乐大前端团队',
+//         },
+//         {
+//             template: 'zhihu',
+//             url: 'https://www.zhihu.com/api/v4/columns/imweb/items',
+//             type: '知乎-IMWeb前端社区',
+//         },
+//         {
+//             template: 'zhihu',
+//             url: 'https://www.zhihu.com/api/v4/columns/FrontendPerusal/items',
+//             type: '知乎-前端精读评论',
+//         },
+//         {
+//             template: 'zhihu',
+//             url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
+//             type: '知乎-淘系前端团队',
+//         },
+//         {
+//             template: 'zhihu',
+//             url: 'https://www.zhihu.com/api/v4/columns/ElemeFE/items',
+//             type: '知乎-饿了么前端',
+//         },
+//         {
+//             template: 'juejin',
+//             reqParams: {
+//                 user_id: '764915822116382',
+//             },
+//             type: '掘金-腾讯IMWeb团队',
+//         },
+//         {
+//             template: 'juejin',
+//             reqParams: {
+//                 user_id: '3456520257288974',
+//             },
+//             type: '掘金-政采云前端团队',
+//         },
+//         {
+//             template: 'juejin',
+//             reqParams: {
+//                 user_id: '395479919373991'
+//             },
+//             type: '掘金-阿里巴巴淘系技术',
+//         },
+//         {
+//             template: 'juejin',
+//             reqParams: {
+//                 user_id: '1257497031878408',
+//             },
+//             type: '掘金-闲鱼技术',
+//         },
+//         {
+//             template: 'juejin',
+//             reqParams: {
+//                 user_id: '4089838988440024',
+//             },
+//             type: '掘金-微医大前端技术',
+//         },
+//         {
+//             url: 'https://weekly.75.team/',
+//             selectorList: '.issue-list li',
+//             selectorTitle: 'a',
+//             type: '奇舞周刊',
+//             selectorDate: 'time',
+//             href: ($elem) => {
+//                 return `https://weekly.75.team${ $elem.find("a").attr('href') }`;
+//             }
+//         },
     ]
 }
 
@@ -153,17 +153,7 @@ const english = {
         {
             url: 'https://developers.google.com/web/updates/rss.xml',
             headers: {
-                accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                'accept-encoding': 'gzip, deflate, br',
-                'accept-language': 'zh-CN,zh;q=0.9',
-                'cache-control': 'no-cache',
-                pragma: 'no-cache',
-                'sec-fetch-dest': 'document',
-                'sec-fetch-mode': 'navigate',
-                'sec-fetch-site': 'none',
-                'sec-fetch-user': '?1',
-                'upgrade-insecure-requests': '1',
-                'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36',
+                "upgrade-insecure-requests": "1"
             },
             selectorList: 'item',
             selectorTitle: 'title',
