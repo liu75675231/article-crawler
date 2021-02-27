@@ -97,6 +97,9 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(conf.selectorDate).text());
+            if (conf.type === 'chrome') {
+                console.log(articleDate.format('YYYY-MM-DD HH:mm:ss'));
+            }
             if (unlimitDate || articleDate.isSame(dateObj, 'date')) {
 
                 targetList.push({
