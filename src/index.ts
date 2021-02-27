@@ -3,12 +3,12 @@ const {run, setReqConf} = require('./crawler.ts');
 const crawlerConf = require('./conf.ts');
 
 const dayjs = require('dayjs');
-var utc = require('dayjs/plugin/utc') // dependent on utc plugin
-var timezone = require('dayjs/plugin/timezone');
+// var utc = require('dayjs/plugin/utc') // dependent on utc plugin
+// var timezone = require('dayjs/plugin/timezone');
 var isToday = require('dayjs/plugin/isToday');
 dayjs.extend(isToday);
-dayjs.extend(utc)
-dayjs.extend(timezone)
+// dayjs.extend(utc)
+// dayjs.extend(timezone)
 
 const argList = process.argv;
 
@@ -23,16 +23,21 @@ const region = argList.reduce((accumulator, curValue) => {
     return accumulator;
 }, "") || "chinese";
 
-dayjs.tz.setDefault(crawlerConf[region].timezone);
+// dayjs.tz.setDefault(crawlerConf[region].timezone);
 
 const argDate = argList.reduce((accumulator, curValue) => {
     if (curValue.indexOf('--date') > -1) {
-        return curValue.split('=')[1];
+        const val = curValue.split('=')[1];
+        if (!isNaN(Number(val)) && Number(val) < 0) {
+            console.log(-val);
+            return dayjs().subtract(-val, 'day');
+        }
+        return dayjs(val);
     }
     return accumulator;
 }, "");
 
-const dateObj = argDate ? dayjs.tz(argDate) : dayjs.tz();
+const dateObj = argDate || dayjs();
 
 console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 (async () => {
@@ -76,7 +81,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
         JSON.parse(resData)[conf.list].forEach((elem) => {
             let originDate = typeof conf.date === 'function' ? conf.date(elem) : elem[conf.date];
             conf.dateType === 'secondUnix' && (originDate = originDate * 1000);
-            const articleDate = dayjs.tz(originDate);
+            const articleDate = dayjs(originDate);
             if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
@@ -92,9 +97,9 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
     function compileHtmlList ($, conf, targetList) {
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
-            const articleDate = dayjs.tz($elem.find(conf.selectorDate).text());
+            const articleDate = dayjs($elem.find(conf.selectorDate).text());
+            if (unlimitDate || articleDate.isSame(dateObj, 'date')) {
 
-            if (unlimitDate || articleDate.isSame(dateObj, 'day')) {
                 targetList.push({
                     type: conf.type,
                     title: typeof conf.selectorTitle === 'function' ? conf.selectorTitle($elem) : $elem.find(conf.selectorTitle).text(),

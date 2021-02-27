@@ -4,7 +4,8 @@ const dayjs = require('dayjs');
 const reqConfList = [];
 
 const c = new Crawler({
-    maxConnections : 10,
+    rateLimit: 1000,
+    maxConnections : 1,
     // This will be called for each crawled page
     callback : function (error, res, done) {
         if(error){
