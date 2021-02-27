@@ -96,10 +96,13 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
     function compileHtmlList ($, conf, targetList) {
         console.log(conf);
         console.log($(conf.selectorList).length);
+        if (conf.type === 'Chrome') {
+            console.log($.root().html());
+        }
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(conf.selectorDate).text());
-            if (conf.type === 'chrome') {
+            if (conf.type === 'Chrome') {
                 console.log(articleDate);
                 console.log(articleDate.format('YYYY-MM-DD HH:mm:ss'));
             }
