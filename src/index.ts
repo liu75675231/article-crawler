@@ -1,7 +1,20 @@
 const { initOrGetWorksheet, writeToFile, getOriginWorksheetRowCount } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 const crawlerConf = require('./conf.ts');
+const fetch = require('node-fetch');
 
+fetch("https://developers.google.com/web/updates/rss.xml", {
+    "headers": {
+        "upgrade-insecure-requests": "1"
+    },
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": null,
+    "method": "GET",
+    "mode": "cors"
+}).then(res => res.text())
+    .then(body => console.log(body));;
+
+return;
 const dayjs = require('dayjs');
 // var utc = require('dayjs/plugin/utc') // dependent on utc plugin
 // var timezone = require('dayjs/plugin/timezone');
