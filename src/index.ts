@@ -1,20 +1,7 @@
 const { initOrGetWorksheet, writeToFile, getOriginWorksheetRowCount } = require('./xlsx.ts');
 const {run, setReqConf} = require('./crawler.ts');
 const crawlerConf = require('./conf.ts');
-const fetch = require('node-fetch');
 
-// fetch("https://developers.google.com/web/updates/rss.xml", {
-//     "headers": {
-//         "upgrade-insecure-requests": "1"
-//     },
-//     "referrerPolicy": "strict-origin-when-cross-origin",
-//     "body": null,
-//     "method": "GET",
-//     "mode": "cors"
-// }).then(res => res.text())
-//     .then(body => console.log(body));;
-
-//return;
 const dayjs = require('dayjs');
 // var utc = require('dayjs/plugin/utc') // dependent on utc plugin
 // var timezone = require('dayjs/plugin/timezone');
@@ -66,6 +53,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
             resType: data.resType,
             reqParams: data.reqParams || {},
             isResXml: data.isResXml || false,
+            isHttp2: data.isHttp2 || false,
         }, ($) => {
             const list = [];
             if (data.resType === 'json') {
@@ -107,20 +95,10 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
     }
 
     function compileHtmlList ($, conf, targetList) {
-        console.log(conf);
-        console.log($(conf.selectorList).length);
-        if (conf.type === 'Chrome') {
-            console.log($.root().html());
-        }
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(conf.selectorDate).text());
-            if (conf.type === 'Chrome') {
-                console.log(articleDate);
-                console.log(articleDate.format('YYYY-MM-DD HH:mm:ss'));
-            }
             if (unlimitDate || articleDate.isSame(dateObj, 'date')) {
-
                 targetList.push({
                     type: conf.type,
                     title: typeof conf.selectorTitle === 'function' ? conf.selectorTitle($elem) : $elem.find(conf.selectorTitle).text(),
