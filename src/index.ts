@@ -95,6 +95,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 
     function compileHtmlList ($, conf, targetList) {
         console.log(conf);
+        console.log($(conf.selectorList).length);
         $(conf.selectorList).each((index, elem) => {
             const $elem = $(elem);
             const articleDate = dayjs($elem.find(conf.selectorDate).text());
