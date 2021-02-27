@@ -27,8 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: git pull
-    - run: npm run start:english
-    - run: npm run start:chinese
+    - run: npm run start:english --date=-1
+    - run: npm run start:chinese --date=-1
     - run: git add .    
     - run: |
         set +e
