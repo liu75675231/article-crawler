@@ -28,7 +28,10 @@ const region = argList.reduce((accumulator, curValue) => {
 const argDate = argList.reduce((accumulator, curValue) => {
     if (curValue.indexOf('--date') > -1) {
         const val = curValue.split('=')[1];
+        console.log(val);
         if (!isNaN(Number(val)) && Number(val) < 0) {
+            console.log('i am in');
+            console.log(val);
             console.log(-val);
             return dayjs().subtract(-val, 'day');
         }
