@@ -25,7 +25,9 @@ const region = argList.reduce((accumulator, curValue) => {
 
 // dayjs.tz.setDefault(crawlerConf[region].timezone);
 
+console.log(argList);
 const argDate = argList.reduce((accumulator, curValue) => {
+    console.log(curValue);
     if (curValue.indexOf('--date') > -1) {
         const val = curValue.split('=')[1];
         console.log(val);
