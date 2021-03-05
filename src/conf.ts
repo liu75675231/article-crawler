@@ -114,6 +114,13 @@ const chinese = {
             },
             type: '掘金-微医大前端技术',
         },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '4098589725834317',
+             },
+             type: '掘金-字节前端',
+         },
         {
             url: 'https://weekly.75.team/',
             selectorList: '.issue-list li',
