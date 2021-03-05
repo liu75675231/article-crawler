@@ -149,6 +149,13 @@ const chinese = {
              },
              type: '掘金-晓前端团队',
          },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '1838039172387262',
+             },
+             type: '掘金-字节跳动技术团队',
+         },
         {
             url: 'https://weekly.75.team/',
             selectorList: '.issue-list li',
