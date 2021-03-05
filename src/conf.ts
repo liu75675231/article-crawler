@@ -128,6 +128,27 @@ const chinese = {
              },
              type: '掘金-智联大前端',
          },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '3051900006845944',
+             },
+             type: '掘金-飞猪前端',
+         },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '676954895831517',
+             },
+             type: '掘金-钉钉前端',
+         },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '1292681405013320',
+             },
+             type: '掘金-晓前端团队',
+         },
         {
             url: 'https://weekly.75.team/',
             selectorList: '.issue-list li',
