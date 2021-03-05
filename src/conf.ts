@@ -121,6 +121,13 @@ const chinese = {
              },
              type: '掘金-字节前端',
          },
+         {
+             template: 'juejin',
+             reqParams: {
+                 user_id: '4125023359214382',
+             },
+             type: '掘金-智联大前端',
+         },
         {
             url: 'https://weekly.75.team/',
             selectorList: '.issue-list li',
