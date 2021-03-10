@@ -254,7 +254,40 @@ const english = {
             href: ($elem) => {
                 return $elem.find("link").text();
             }
-        }
+        },
+        {
+            url: 'https://addyosmani.com/rss.xml',
+            isResXml: true,
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Addy Osmani(Chrome工程管理者)',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("link").text();
+            }
+        },
+        {
+            url: 'https://christianheilmann.com/feed/',
+            isResXml: true,
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Christian Heilmann',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("link").text();
+            }
+        },
+        {
+            url: 'https://cprss.s3.amazonaws.com/frontendfoc.us.xml',
+            isResXml: true,
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Frontend Focus',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("link").text();
+            }
+        },
     ],
 };
 
