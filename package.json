@@ -1,0 +1,23 @@
+{
+  "name": "website-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:english": "node src/index.ts --region=english --date=-1",
+    "start:chinese": "node src/index.ts --region=chinese --date=-1",
+    "test:english": "node src/index.ts --region=english --alldate --forceUpdate",
+    "test:chinese": "node src/index.ts --region=chinese --alldate --forceUpdate"
+  },
+  "dependencies": {
+    "crawler": "^1.3.0",
+    "dayjs": "^1.10.4",
+    "exceljs": "^4.2.0",
+    "hexo": "^5.4.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
