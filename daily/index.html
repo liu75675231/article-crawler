@@ -25,7 +25,7 @@
     <!-- meta -->
 
 
-<title>daily | 前端技术爬虫</title>
+<title>每日文章 | 前端技术爬虫</title>
 
 
     <meta name="keywords" content="前端 Javascript Css React Chrome Webpack">
@@ -37,13 +37,13 @@
  
     <meta name="description" content="定时获取国内，全球高质量文章">
 <meta property="og:type" content="website">
-<meta property="og:title" content="daily">
+<meta property="og:title" content="每日文章">
 <meta property="og:url" content="https://articles.lht.ren/daily/index.html">
 <meta property="og:site_name" content="前端技术爬虫">
 <meta property="og:description" content="定时获取国内，全球高质量文章">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-04-03T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-04-03T02:30:00.019Z">
+<meta property="article:modified_time" content="2021-04-04T08:02:46.946Z">
 <meta property="article:author" content="liu75675231">
 <meta property="article:tag" content="前端 Javascript Css React Chrome Webpack">
 <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +75,7 @@
             <header class="header">
     <div class="header__left">
         <a href="/" class="button">
-            <span class="logo__text">Demo</span>
+            <span class="logo__text">首页</span>
         </a>
     </div>
     <div class="header__right">
@@ -115,7 +115,7 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        daily
+        每日文章
     </h1>
     <div class="post-title__meta">
         <a href="/archives/2021/04/" class="post-meta__date button">2021-04-03</a>
@@ -140,12 +140,32 @@
         
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2021-04-03</p></div> 
+    <div class="post-footer__meta"><p>updated at 2021-04-04</p></div> 
     <div class="post-meta__cats"></div> 
 </article>
 
 
 
+
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
 
 
 
@@ -178,6 +198,16 @@
  
 
  
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?ddc45d44518dd65b9b7eff1e19a55070';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
 
  
 
@@ -199,6 +229,62 @@
 
  
 
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"5RBQKjf7FkybjrXosJrPViwo-gzGzoHsz","appKey":"MTX1JaHg8jWf7Cv0WqbaDWh2","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":null,"visitor":null,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
 
 
 
