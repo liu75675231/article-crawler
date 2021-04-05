@@ -37,14 +37,14 @@ function setColumn (worksheet) {
     ]
 }
 
+async function getWorksheet (name) {
+    await workbook.xlsx.readFile("./articlelist.xlsx");
+
+    return workbook.getWorksheet(name);
+}
+
 async function initOrGetWorksheet (name) {
-    try {
-        await workbook.xlsx.readFile("./articlelist.xlsx");
-    } catch (e) {
-
-    }
-
-    let worksheet = workbook.getWorksheet(name);
+    let worksheet = await getWorksheet(name);
 
     if (worksheet) {
         originWorksheetRowCount = worksheet.rowCount;
@@ -68,6 +68,7 @@ function writeToFile () {
 }
 
 module.exports = {
+    getWorksheet,
     initOrGetWorksheet,
     writeToFile,
     getOriginWorksheetRowCount,

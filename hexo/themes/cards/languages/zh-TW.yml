@@ -1,0 +1,36 @@
+page: 
+  pagination: '第 %s 頁'
+  prev: 上一篇
+  next: 下一篇
+navbar:
+  home: 首頁
+  link: 鏈接
+  archive: 歸檔
+  category: 分類
+  tag: 標籤
+  top: 回到頂部
+search:
+  main: 搜索
+  placeholder: 請輸入關鍵字...
+post:
+  top: 置頂
+  read_more: 閱讀全文
+  sticky: 置頂
+  comments: 評論
+  comments_placeholder: 無法加載 %s 評論系統，請確保您的網絡能夠正常訪問。
+  updated: '更新於 '
+  prev_page: 上一頁
+  next_page: 下一頁
+  toc: 文章目錄
+  copyright: 
+    author: '本文作者：'
+    permalink: '本文鏈接：'
+  expire: "本文最後更新於 %s 天前，文中部分描述可能已經過時。"
+symbol:
+  comma: "，"
+  period: "。"
+  colon: "："
+  angle_l: "&lt;&nbsp;"
+  angle_r: "&nbsp;&gt;"
+  brackets_l: "（"
+  brackets_r: "）"

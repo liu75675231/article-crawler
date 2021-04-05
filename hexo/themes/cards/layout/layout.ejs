@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="<%= config.language%>">
+    <%- partial('_partial/head/index') %>
+    <body>
+        <div id="app">
+            <%- partial('_partial/source/cover') %>
+            <%- body %>
+            <%- partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
+        </div>
+        <%- partial('_partial/scripts/index') %>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+.header
+    display flex
+    justify-content space-between
+    align-items center
+    min-height $header_height
+    padding 0 calc(var(--space)/2)
+    top 0
+    z-index 10
+
+    .header__left
+    .header__right
+        display flex
+        align-items center
+        font-family rubik,sans-serif,Varela Round
+
+    .header__left
+    
+        .logo__text
+            font-size 18px
+            padding 16px 10px 16px 10px
+            border-radius 5px
+
+    .header__right
+    
+        .navbar__menus
+            padding 0 0 0 15px
+            
+            .navbar-menu
+                font-size 16px
+                padding 16px 10px 16px 10px
+                border-radius 5px
+
+                &:hover
+                    background-color var(--bg-menu)
+
+        #btn-search
+        #btn-toggle-dark
+            padding 16px 10px 16px 10px
+
+        #b2t
+            display block
+            width 3rem
+            height 3rem
+            position fixed
+            z-index 1001
+            right 1.2rem
+            bottom 1.2rem
+            border-radius $radius_button
+            color var(--title-color)
+            background var(--bg-content-color)
+            box-shadow 0 .3rem .6rem rgba(48,55,66,.15);
+
+            *
+                margin 8px
+
+        .dropdown-icon
+            display none
+            padding 16px 10px 16px 10px
+            border 0 !important
+            background-color transparent
+
+            *
+                width 20px
+                height 20px
+
+            &:focus + .dropdown-menus
+                display flex
+
+
+        .dropdown-menus
+            animation slide-in 0.15s ease 1
+            display none
+            position absolute
+            left 12px
+            right 12px
+            top $header_height
+            z-index 9999
+            border-radius 6px
+            padding 24px
+            background var(--bg-content-color)
+            box-shadow 1px 1px 5px 0 rgba(0,0,0,.02),1px 1px 15px 0 rgba(0,0,0,.03)
+            justify-items center
+            justify-content center 
+            flex-direction column
+
+            &:hover
+                display flex
+
+            .dropdown-menu
+                padding 10px
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.6rem)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+if (hexo-config('navbar.sticky'))
+    @media screen and (min-width: 1080px)
+        .header
+            position sticky
+
+@media screen and (max-width: 764px)
+    .navbar__menus
+        display none !important
+    
+    .dropdown-icon
+        display block !important
+

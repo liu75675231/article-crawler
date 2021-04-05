@@ -9,7 +9,7 @@ description: '定时获取国内，全球高质量文章'
 keywords: 前端 Javascript Css React Chrome Webpack
 author: liu75675231
 language: zh
-timezone: 'GMT+8'
+timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -106,4 +106,5 @@ deploy:
   type: git
   repo:
     github: https://github.com/liu75675231/article-crawler.git
+    coding: https://git.dev.tencent.com/yusting/yusting.coding.me.git
   branch: pages

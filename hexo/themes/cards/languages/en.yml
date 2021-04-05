@@ -1,0 +1,36 @@
+page: 
+  pagination: 'Page %s'
+  prev_page: Previous
+  next_page: Next
+navbar:
+  home: Home
+  link: Link
+  archive: Archive
+  category: Category
+  tag: Tag
+  top: Back to Top
+search:
+  main: "Search"
+  placeholder: "Please enter a keyword..."
+post:
+  top: Top
+  read_more: Read More
+  sticky: Sticky
+  comments: Comments
+  comments_placeholder: Unable to load %s, please make sure your network can access.
+  updated: 'updated at '
+  prev: Previous Post
+  next: Next Post
+  toc: Article Directory
+  copyright: 
+    author: 'Author: '
+    permalink: 'Permalink: '
+  expire: "This article was last updated on %s days ago, the information described in the article may be outdated."
+symbol:
+  comma: ", "
+  period: ". "
+  colon: ": "
+  angle_l: "&lt;&nbsp;"
+  angle_r: "&nbsp;&gt;"
+  brackets_l: "("
+  brackets_r: ")"
