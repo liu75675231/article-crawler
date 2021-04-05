@@ -44,8 +44,11 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
         articleList.push(`[${articleList.length}. ${item[1]} - ${ item[2] }](${ item[5] })`);
     });
 
-    fs.writeFile(`./hexo/source/_posts/daily-${ todayStr }-${region}.md`, `---\r\ntitle: 'daily-${ todayStr.replace(/-/g, '.') }'\r\ndate: ${ todayStr }\r\ntags:\r\n---\r\n\r\n${ articleList.join('\r\n') }`, (err) => {
-        if (err) return console.log(err);
-        console.log('post generate success');
-    });
+    if (articleList.length > 0) {
+        fs.writeFile(`./hexo/source/_posts/daily-${ todayStr }-${region}.md`, `---\r\ntitle: 'daily-${ todayStr.replace(/-/g, '.') }'\r\ndate: ${ todayStr }\r\ntags:\r\n---\r\n\r\n${ articleList.join('\r\n') }`, (err) => {
+            if (err) return console.log(err);
+            console.log('post generate success');
+        });
+    }
+
 })();
