@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:english": "node src/index.ts --region=english --date=-1 && node src/post.ts --region=english --date=-1",
-    "start:chinese": "node src/index.ts --region=chinese --date=-1 && node src/post.ts --region=chinese --date=-1",
+    "start:english": "node src/index.ts --region=english --date=-1",
+    "start:chinese": "node src/index.ts --region=chinese --date=-1",
+    "post:english": "node src/post.ts --region=english --date=-1",
+    "post:chinese": "node src/post.ts --region=chinese --date=-1",
     "test:english": "node src/index.ts --region=english --alldate --forceUpdate",
     "test:chinese": "node src/index.ts --region=chinese --alldate --forceUpdate",
     "test:post": "node src/post.ts --region=chinese --date=-2"
