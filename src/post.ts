@@ -1,9 +1,15 @@
 const { getWorksheet } = require('./xlsx.ts');
 const dayjs = require('dayjs');
+const fs = require('fs');
 
 const argList = process.argv;
 
-const unlimitDate = argList.indexOf('--alldate') > -1;
+const region = argList.reduce((accumulator, curValue) => {
+    if (curValue.indexOf('--region') > -1) {
+        return curValue.split('=')[1];
+    }
+    return accumulator;
+}, "") || "chinese";
 
 const argDate = argList.reduce((accumulator, curValue) => {
     if (curValue.indexOf('--date') > -1) {
@@ -20,14 +26,26 @@ const dateObj = argDate || dayjs();
 
 console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
 
-const region = 'chinese';
-
 (async () => {
     const todayStr = dateObj.format('YYYY-MM-DD');
     console.log(todayStr + '-' + region);
     const sheetToday = await getWorksheet(todayStr + '-' + region);
 
-    sheetToday.eachRow((row) => {
-        console.log(row.values);
+    const articleList = [];
+    if (!sheetToday) {
+        return;
+    }
+    sheetToday.eachRow((row, index) => {
+        if (index === 1) {
+            return;
+        }
+
+        const item = row.values;
+        articleList.push(`[${articleList.length}. ${item[1]} - ${ item[2] }](${ item[5] })`);
+    });
+
+    fs.writeFile(`./hexo/source/_posts/daily-${ todayStr }-${region}.md`, `---\r\ntitle: 'daily-${ todayStr.replace(/-/g, '.') }'\r\ndate: ${ todayStr }\r\ntags:\r\n---\r\n\r\n${ articleList.join('\r\n') }`, (err) => {
+        if (err) return console.log(err);
+        console.log('post generate success');
     });
 })();

@@ -52,8 +52,6 @@ navbar:
   menu: 
     - name: 首页
       url: /
-    - name: 每日文章
-      url: /daily/
 
   # 导航栏永远显示在屏幕顶端
   # 仅当屏幕宽度不小于 1080 px 时生效
