@@ -164,6 +164,62 @@ const chinese = {
             type: '掘金-iCSS前端趣闻',
         },
         {
+            template: 'juejin',
+            reqParams: {
+                user_id: '4169764695465239',
+            },
+            type: '掘金-ELab',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '4195392101298510',
+            },
+            type: '掘金-滴滴前端技术',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '3737995267297838',
+            },
+            type: '掘金-前端森林',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '712139233840407',
+            },
+            type: '掘金-前端真好玩',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '1556564164747437',
+            },
+            type: '掘金-黄子毅',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '1028798614616120',
+            },
+            type: '掘金-阿里妈妈前端快爆',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '949604400000199',
+            },
+            type: '掘金-Hikvision前端',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '870468942044472',
+            },
+            type: '掘金-阿里巴巴业务中台前端',
+        },
+        {
             url: 'https://weekly.75.team/',
             selectorList: '.issue-list li',
             selectorTitle: 'a',
