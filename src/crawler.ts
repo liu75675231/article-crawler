@@ -5,7 +5,7 @@ const reqConfList = [];
 
 const c = new Crawler({
     rateLimit: 1000,
-    maxConnections : 1,
+    maxConnections : 10,
     // This will be called for each crawled page
     callback : function (error, res, done) {
         if(error){
