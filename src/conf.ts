@@ -302,6 +302,46 @@ const english = {
             }
         },
         {
+            url: 'https://cprss.s3.amazonaws.com/mobiledevweekly.com.xml',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Mobile Web Weekly',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("guid").text();
+            }
+        },
+        {
+            url: 'https://cprss.s3.amazonaws.com/frontendfoc.us.xml',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Frontend Focus Weekly',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("guid").text();
+            }
+        },
+        {
+            url: 'https://reactnewsletter.com/issues',
+            selectorList: '.masonry-column li',
+            selectorTitle: '.font-semibold',
+            type: 'React Newsletter',
+            selectorDate: '.text-gray-300',
+            href: ($elem) => {
+                return `https://reactnewsletter.com${ $elem.find("a").attr("href") }`;
+            }
+        },
+        {
+            url: 'https://cprss.s3.amazonaws.com/nodeweekly.com.xml',
+            selectorList: 'item',
+            selectorTitle: 'title',
+            type: 'Frontend Focus Weekly',
+            selectorDate: 'pubDate',
+            href: ($elem) => {
+                return $elem.find("guid").text();
+            }
+        },
+        {
             url: 'https://css-tricks.com/feed/',
             isResXml: true,
             selectorList: 'item',
@@ -340,17 +380,6 @@ const english = {
             selectorList: 'item',
             selectorTitle: 'title',
             type: 'Christian Heilmann',
-            selectorDate: 'pubDate',
-            href: ($elem) => {
-                return $elem.find("link").text();
-            }
-        },
-        {
-            url: 'https://cprss.s3.amazonaws.com/frontendfoc.us.xml',
-            isResXml: true,
-            selectorList: 'item',
-            selectorTitle: 'title',
-            type: 'Frontend Focus',
             selectorDate: 'pubDate',
             href: ($elem) => {
                 return $elem.find("link").text();
