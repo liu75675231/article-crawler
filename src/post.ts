@@ -50,7 +50,7 @@ console.log(dateObj.format('YYYY-MM-DD HH:mm:ss'));
     });
 
     if (articleList.length > 0) {
-        fs.writeFile(`./hexo/source/_posts/daily-${ todayStr }-${region}.md`, `---\r\ntitle: '(${ regionNameDic[region] })daily-${ todayStr.replace(/-/g, '.') }'\r\ndate: ${ todayStr }\r\ntags:\r\n---\r\n\r\n${ articleList.join('\r\n') }`, (err) => {
+        fs.writeFile(`./hexo/source/_posts/daily-${ todayStr }-${region}.md`, `---\r\ntitle: '(${ regionNameDic[region] })daily-${ todayStr.replace(/-/g, '.') }'\r\ndate: ${ todayStr }\r\ntags:\r\n---\r\n\r\n${ articleList.join('\r\n\r\n') }`, (err) => {
             if (err) return console.log(err);
             console.log('post generate success');
         });
