@@ -261,14 +261,14 @@ const english = {
             }
         },
         {
-            url: 'https://developers.google.com/web/updates/rss.xml',
+            url: 'https://developer.chrome.com/feeds/blog.xml',
             isHttp2: true,
-            selectorList: 'item',
+            selectorList: 'entry',
             selectorTitle: 'title',
             type: 'Chrome',
-            selectorDate: 'pubDate',
+            selectorDate: 'updated',
             href: ($elem) => {
-                return $elem.find("guid").text();
+                return $elem.find("id").text();
             }
         },
         {
