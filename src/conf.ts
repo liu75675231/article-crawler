@@ -33,6 +33,13 @@ const chinese = {
             }
         },
         {
+            template: 'juejin',
+            reqParams: {
+                user_id: '4212984287334711',
+            },
+            type: '掘金-Allen91',
+        },
+        {
             url: 'https://www.zhangxinxu.com/wordpress/feed/',
             selectorList: 'item',
             selectorTitle: 'title',
@@ -41,6 +48,13 @@ const chinese = {
             href: ($elem) => {
                 return $elem.find("comments").text().replace(/#comments/, '');
             }
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '2330620350708823',
+            },
+            type: '掘金-前端从进阶到入院',
         },
         {
             url: 'https://fed.taobao.org/atom.xml',
@@ -53,6 +67,13 @@ const chinese = {
             href: ($elem) => {
                 return $elem.find("id").text();
             }
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '1943592291009511',
+            },
+            type: '掘金-魔术师卡颂',
         },
         {
             template: 'zhihu',
