@@ -76,6 +76,20 @@ const chinese = {
             type: '掘金-魔术师卡颂',
         },
         {
+            template: 'juejin',
+            reqParams: {
+                user_id: '2392954206960247',
+            },
+            type: '得物技术',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '1204720443866983',
+            },
+            type: '掘金小册',
+        },
+        {
             template: 'zhihu',
             url: 'https://www.zhihu.com/api/v4/columns/tmallf2e/items',
             type: '知乎-淘系前端团队',
@@ -244,6 +258,13 @@ const chinese = {
                 user_id: '870468942044472',
             },
             type: '掘金-阿里巴巴业务中台前端',
+        },
+        {
+            template: 'juejin',
+            reqParams: {
+                user_id: '852876751539896',
+            },
+            type: '掘金-蚂蚁RichLab前端团队',
         },
         {
             url: 'https://weekly.75.team/',
